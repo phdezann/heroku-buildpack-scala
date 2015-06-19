@@ -19,7 +19,7 @@ ENV_DIR=$3
 # This is necessary for incremental compile, because sbt invalidates the
 # cache if the path is different.
 BUILD_DIR="/tmp/scala_buildpack_build_dir"
-mv $APP_BUILD_DIR $BUILD_DIR
+mv $APP_BUILD_DIR/connectus-backend $BUILD_DIR
 
 # Now that we've moved into a new tmp dir, we need to fix the PATH
 # This is only necessary when using heroku-buildpack-multi because earlier
@@ -173,4 +173,5 @@ export PATH="\$HOME/.sbt_home/bin:\$PATH"
 EOF
 
 # Move compiled app back to where Heroku expects it
+rm -Rf $APP_BUILD_DIR
 mv $BUILD_DIR $APP_BUILD_DIR

@@ -27,7 +27,7 @@ detect_sbt() {
 }
 
 is_play() {
-  _has_playConfig $1
+  return 0
 }
 
 is_sbt_native_packager() {
